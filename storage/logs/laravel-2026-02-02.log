@@ -61,3 +61,27 @@
 #58 C:\\xampp\\htdocs\\new\\index.php(56): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #59 {main}
 "} 
+[2026-02-02 04:19:38] production.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at C:/xampp_8.2/htdocs/kas-backend/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-02-02 04:19:38] production.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at C:/xampp_8.2/htdocs/kas-backend/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-02-02 04:20:35] production.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at C:/xampp_8.2/htdocs/kas-backend/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-02-02 04:21:35] production.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at C:/xampp_8.2/htdocs/kas-backend/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-02-02 04:22:37] production.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at C:/xampp_8.2/htdocs/kas-backend/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
+[2026-02-02 04:23:35] production.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at C:/xampp_8.2/htdocs/kas-backend/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
