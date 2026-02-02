@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\Api\V2\AddressController;
+use App\Http\Controllers\Api\V2\AffiliateController;
 use App\Http\Controllers\Api\V2\AuctionProductBidController;
 use App\Http\Controllers\Api\V2\AuctionProductController;
 use App\Http\Controllers\Api\V2\AuthController;
@@ -67,6 +68,7 @@ Route::group(['prefix' => 'v2/auth', 'middleware' => ['app_language']], function
 
 Route::group(['prefix' => 'v2', 'middleware' => ['app_language']], function () {
 
+    Route::post('affiliate/store',[AffiliateController::class,'store_affiliate_user']);
 
     //auth controller
     Route::post('guest-user-account-create', [AuthController::class, 'guestUserAccountCreate']);
@@ -523,6 +525,8 @@ Route::group(['prefix' => 'v2', 'middleware' => ['app_language']], function () {
         Route::get('file/delete/{id}', 'destroy');
     });
 });
+
+
 
 Route::fallback(function () {
     return response()->json([

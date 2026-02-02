@@ -34,3 +34,4 @@ public/uploads.zip
 .env
 public/all
 
+/storage/logs/

@@ -2,15 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\HigherOrderCollectionProxy;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Cart;
 use App\Notifications\EmailVerificationNotification;
 use App\Traits\PreventDemoModeChanges;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @property HigherOrderCollectionProxy|mixed $is_affiliate_user
+ */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable, HasApiTokens, HasRoles;
@@ -20,6 +25,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new EmailVerificationNotification());
     }
+
+    protected $attributes=['is_affiliate_user'];
 
     /**
      * The attributes that are mass assignable.
@@ -68,6 +75,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Shop::class);
     }
+
     public function seller()
     {
         return $this->hasOne(Seller::class);
@@ -88,6 +96,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Order::class, "seller_id");
     }
+
     public function seller_sales()
     {
         return $this->hasMany(OrderDetail::class, "seller_id");
@@ -148,15 +157,18 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(AuctionProductBid::class);
     }
 
-    public function product_queries(){
-        return $this->hasMany(ProductQuery::class,'customer_id');
+    public function product_queries()
+    {
+        return $this->hasMany(ProductQuery::class, 'customer_id');
     }
 
-    public function uploads(){
+    public function uploads()
+    {
         return $this->hasMany(Upload::class);
     }
 
-    public function userCoupon(){
+    public function userCoupon()
+    {
         return $this->hasOne(UserCoupon::class);
     }
 
@@ -164,8 +176,16 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(PreorderProduct::class);
     }
+
     public function preorders()
     {
         return $this->hasMany(Preorder::class);
+    }
+
+    protected function isAffiliateUser(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value, array $attributes) => $this->affiliate_user()->exists(),
+        );
     }
 }

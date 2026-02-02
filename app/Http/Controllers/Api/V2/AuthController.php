@@ -224,7 +224,7 @@ class AuthController extends Controller
         // }
         // if (!$delivery_boy_condition) {
         if (!$delivery_boy_condition && !$seller_condition) {
-            if (\App\Utility\PayhereUtility::create_wallet_reference($request->identity_matrix) == false) {
+            if (!\App\Utility\PayhereUtility::create_wallet_reference($request->identity_matrix)) {
                 return response()->json(['result' => false, 'message' => 'Identity matrix error', 'user' => null], 401);
             }
         }
@@ -251,7 +251,9 @@ class AuthController extends Controller
 
     public function user(Request $request)
     {
-        return response()->json($request->user());
+        $user=User::find($request->user()->id);
+        $user->is_affiliate_user=$request->user()->is_affiliate_user;
+        return response()->json($user);
     }
 
     public function logout(Request $request)
@@ -451,7 +453,8 @@ class AuthController extends Controller
                 'avatar' => $user->avatar,
                 'avatar_original' => uploaded_asset($user->avatar_original),
                 'phone' => $user->phone,
-                'email_verified' => $user->email_verified_at != null
+                'email_verified' => $user->email_verified_at != null,
+                'is_affiliate_user' => $user->is_affiliate_user
             ]
         ]);
     }
