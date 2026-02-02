@@ -85,3 +85,7 @@
 [stacktrace]
 #0 {main}
 "} 
+[2026-02-02 04:24:35] production.ERROR: Cannot declare class App\Models\FrequentlyBoughtProduct, because the name is already in use {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot declare class App\\Models\\FrequentlyBoughtProduct, because the name is already in use at C:/xampp_8.2/htdocs/kas-backend/app/Models/FrequentlyBroughtProduct.php:9)
+[stacktrace]
+#0 {main}
+"} 
